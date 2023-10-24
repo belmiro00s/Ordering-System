@@ -23,7 +23,7 @@ class Cliente {
 
     } 
 
-    static async atualizar (id){
+    static async remover (id){
         return await modelo.findOneAndRemove(id)
     }
 }
