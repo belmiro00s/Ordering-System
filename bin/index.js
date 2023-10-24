@@ -19,6 +19,8 @@ app.use(express.static ('public'))
 
 
 
+const cliente_route = require('../src/resources/cliente')
+app.use('/cliente', cliente_route) 
 
 //chamando rotas 
 app.use('/',(req, res ) => { 
