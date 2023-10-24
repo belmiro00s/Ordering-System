@@ -11,9 +11,9 @@ app.set("view engine", "ejs"); //onde ira rodar o front
 app.set("views", "views"); // setando a pasta views
 
 //definindo arquivos estaticos
-app.use(express.static("public"));
+app.use(express.static("public")); 
 
-const cliente_route = require("../src/routes/cliente");
+const cliente_route = require("../src/routes/cliente"); //importando a rota, com funcionalidades clientes
 app.use("/cliente",cliente_route);
 
 //chamando rotas
