@@ -14,7 +14,14 @@ app.set("views", "views"); // setando a pasta views
 app.use(express.static("public")); 
 
 const cliente_route = require("../src/routes/cliente"); //importando a rota, com funcionalidades clientes
-app.use("/cliente",cliente_route);
+app.use("/cliente",cliente_route); // dizendo para api utilizar o caminho /cliente para acessar as rotas
+
+
+const funcionario_route = require("../src/routes/funcionarios")
+app.use("/funcionario",funcionario_route )
+
+
+
 
 //chamando rotas
 app.use("/", (req, res) => {

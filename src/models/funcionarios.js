@@ -9,7 +9,7 @@ smc.smc("funcionarios", {
     senha: {
         type: String,
         required: true,
-        trim: trim
+        trim: true
     }
 
 

@@ -22,7 +22,15 @@ class Cliente {
 
   static async remover(id) {
     return await modelo.findOneAndRemove(id);
+    
   }
+
+  static async validarRegistro(dados){
+    let { email } = dados
+    let cliente = await modelo.findOne({email})
+    return cliente
+  }
+
 }
 
 module.exports = Cliente;

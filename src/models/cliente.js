@@ -6,6 +6,12 @@ smc.smc("clientes", {
     type: String,
     required: true,
   },
+
+  email: {
+    type: String,
+    required: true,
+  },
+
   nome_cliente: {
     type: String,
     required: true,
