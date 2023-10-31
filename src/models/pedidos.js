@@ -5,11 +5,11 @@ const pedido = new schema({
   cliente: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "clientes",
-    required: true,
+    required: false,
   },
 
   funcionario: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId, 
     ref: "clientes",
     required: true,
   },

@@ -31,11 +31,11 @@ exports.postCriar = async (req, res, next) => {
 
 
 
-exports.getbuscarTodos = async (req, res, next) => {
+exports.getbuscarTodos = async (req, res, next) => { 
   try {
     const todos = await Cliente.buscarTodos(); // Chamando o metodo buscar por todos os clientes
     
-    if(todos.length > 0 ){
+    if(todos.length > 0 ){       
       return res.json(todos);
     }else{
       return res.json({error: 'Nao ha registros cadastrados'})

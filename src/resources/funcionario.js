@@ -37,6 +37,14 @@ class Funcionarios {
   static async remover(id) {
     return await modelo.findOneAndRemove(id);
   }
+
+  static async validarRegistro(dados){
+    let { matricula } = dados
+    let funcionario = await modelo.findOne({matricula}) 
+    return funcionario
+  }
+
+  
 }
 
 module.exports = Funcionarios;

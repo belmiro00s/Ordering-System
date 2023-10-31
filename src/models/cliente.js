@@ -17,6 +17,12 @@ smc.smc("clientes", {
     required: true,
     
   },
+
+  cpf: {
+    type: String,
+    required: false 
+  }
+
 });
 
 module.exports = smc;

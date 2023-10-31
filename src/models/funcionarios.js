@@ -10,6 +10,18 @@ smc.smc("funcionarios", {
         type: String,
         required: true,
         trim: true
+    },
+
+    nome: {
+        type: String,
+        required: true,
+        
+    },
+
+    data_nascimento: {
+        type: Date,
+        required: true
+
     }
 
 
