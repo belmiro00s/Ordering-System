@@ -10,6 +10,8 @@ app.use(bp.urlencoded({ extended: false })); //Quando definido como false, os ob
 app.set("view engine", "ejs"); //onde ira rodar o front
 app.set("views", "views"); // setando a pasta views
 
+
+
 //definindo arquivos estaticos
 app.use(express.static("public")); 
 
@@ -19,6 +21,7 @@ app.use("/cliente",cliente_route); // dizendo para api utilizar o caminho /clien
 
 const funcionario_route = require("../src/routes/funcionarios")
 app.use("/funcionario",funcionario_route )
+
 
 
 

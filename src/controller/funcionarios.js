@@ -1,6 +1,7 @@
 const Funcionario = require("../resources/funcionario");
-
-
+const cript = require("bcrypt");
+const auth = require('../middleware/auth');
+const storage = require('localtoken');
 
 // funcao para renderizar a tela de login
 exports.getLogar = async (req, res, next) => {
@@ -12,10 +13,28 @@ exports.getLogar = async (req, res, next) => {
 }
 
 
+exports.postLogar = async (req, res, next) => {
 
+  try {
+     
+     let resultado = await Funcionario.validarEntrada(req.body)
+     if(!resultado) {
+      return res.send('Usuario nao Encontrado')
+     }
+     let compare = await cript.compare(req.body.senha, resultado.senha)
+     if(!compare){
+      res.send('Senha nao combina')
+     }
+     const token = await auth.gerarToken( { resultado } )
+     storage.setInLocal('login', token);
+     console.log('logado com sucesso')
+     return res.render('login/_home')
+     
+  }catch (err) {
+    next(err)
+  }
 
-
-
+}
 
 
 

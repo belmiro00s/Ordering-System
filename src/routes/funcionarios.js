@@ -6,6 +6,7 @@ const router = express.Router()
 
 //login funcionario
 router.get("/login", Funcionario.getLogar)
+router.post("/login", Funcionario.postLogar)
 
 
 //cria funcionario

@@ -16,11 +16,7 @@ class Funcionarios {
     return await new modelo(dados).save(); // aguardando a conclusão da criação da instância com os novos dados e salvando dentro da colecao funcionario
   }
 
-  static async autenticar(dados) {
-    const { matricula } = dados; //extraindo a propriedade matricula 
-    const funcionario = await modelo.findOne({ matricula }); //usando uma promisse e um metodo finOne para encontrar a matricula especifica // depois guarda essa matricula na const funcionario
-    return funcionario;  //retorna o funcionario especifico 
-  }
+
 
   static async buscarTodos() {
     return await modelo.find({}); // retornando todos os funciionarios
@@ -44,6 +40,13 @@ class Funcionarios {
     return funcionario
   }
 
+
+  static async validarEntrada(dados){
+    
+    let { matricula } = dados
+    let funcionario = await modelo.findOne({matricula}) 
+    return funcionario
+  }
   
 }
 
