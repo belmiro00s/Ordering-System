@@ -28,7 +28,7 @@ app.use("/funcionario",funcionario_route )
 
 //chamando rotas
 app.use("/", (req, res) => {
-  return res.render("login"); //enviando como resposta para rota padrao
+  return res.render("_home"); 
 });
 
 //exportando a aplicação
