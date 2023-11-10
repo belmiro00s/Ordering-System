@@ -1,6 +1,8 @@
 const express = require("express");
 const bp = require("body-parser"); // criando uma instancia onde estou importando a lib que analisa o corpo das requests
 const app = express(); // criando a aplicacao
+const auth = require('../src/middleware/auth')
+
 
 //configurando o parser
 app.use(bp.json({ limit: "10mb" })); // definindo que o tamanho maximo do body é de 10 mbs, caso ultrapasse é rejeitado
@@ -27,7 +29,7 @@ app.use("/funcionario",funcionario_route )
 
 
 //chamando rotas
-app.use("/", (req, res) => {
+app.use("/", auth.autorizar, (req, res) => { 
   return res.render("_home"); 
 });
 

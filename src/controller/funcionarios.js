@@ -18,12 +18,12 @@ exports.postLogar = async (req, res, next) => {
     if (!resultado) {
       return res.send("Usuario nao Encontrado");
     }
-    let compare = await cript.compare(req.body.senha, resultado.senha);
+    let compare = await cript.compare(req.body.senha, resultado.senha); //compara a senha fornecida pelo usuário com a senha armazenada no objeto resultao.senha 
     if (!compare) {
       res.send("Senha nao combina");
     }
-    const token = await auth.gerarToken({ resultado });
-    storage.setInLocal("login", token);
+    const token = await auth.gerarToken({ resultado }); // gerando um token para o funcionarion que acabou de logar
+    storage.setInLocal("login", token); //setando o token para page login
     console.log("logado com sucesso");
     return res.redirect('/'); // redrecionando para home // configurado no index.js
   } catch (err) {
